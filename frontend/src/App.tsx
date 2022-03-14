@@ -9,7 +9,6 @@ import type { Color } from "../types/contracts/Color"
 import type { AbiItem } from "web3-utils"
 import { MintForm } from "./components/MintForm"
 
-
 export function App() {
 	const [context, setContext] = React.useState<Required<IAppContext> | null>(null)
 
@@ -24,7 +23,10 @@ export function App() {
 		// @ts-ignore TODO: should be removed
 		const deploymentAddress = ColorContractCompiled.networks[networkId].address
 
-		const contract = new web3.eth.Contract(ColorContractCompiled.abi as AbiItem[], deploymentAddress) as unknown as Color;
+		const contract = new web3.eth.Contract(
+			ColorContractCompiled.abi as AbiItem[],
+			deploymentAddress,
+		) as unknown as Color
 
 		// TODO: provider is any and could be nullish
 		const initializedContext: Required<IAppContext> = {
@@ -41,14 +43,12 @@ export function App() {
 
 	return (
 		<AppContext.Provider value={context}>
-			<div className="">
-				<Header />
-				<main className="max-w-[1140px] mx-auto">
-					<ColorTokenList />
-					<MintForm />
-				</main>
-				<footer />
-			</div>
+			<Header />
+			<main className="max-w-[1140px] mx-auto">
+				<ColorTokenList />
+				<MintForm />
+			</main>
+			<footer />
 		</AppContext.Provider>
 	)
 }

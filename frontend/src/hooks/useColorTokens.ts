@@ -8,13 +8,11 @@ export function useColorTokens() {
 
 	const fetchColors = React.useCallback(async () => {
 		const totalSupply = await contract.methods.totalSupply().call()
-		const firstcolor = await contract.methods.colors(0).call()
-		console.log(firstcolor)
 		const getColorPromises = [...new Array(Number(totalSupply)).keys()].map((index) =>
 			contract.methods.colors(index).call(),
 		)
+
 		const colors = await Promise.all(getColorPromises)
-		console.log(colors)
 		setColors(colors)
 	}, [contract.methods])
 
