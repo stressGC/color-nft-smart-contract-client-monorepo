@@ -19,8 +19,7 @@
 		"_build:css": "tailwindcss build -i src/styles/main.css -o src/styles/tailwind.generated.css --minify",
 		"_build:app": "react-scripts build",
 		"test": "react-scripts test",
-		"eject": "react-scripts eject",
-		"migrate": "truffle migrate"
+		"eject": "react-scripts eject"
 	},
 	"eslintConfig": {
 		"extends": [
