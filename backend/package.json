@@ -1,0 +1,37 @@
+{
+	"name": "backend",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "truffle test",
+		"migrate": "truffle migrate",
+		"postmigrate": "cp -r build/contracts ../frontend/src/contracts",
+		"generate-types": "npx typechain --target=truffle-v5 'build/contracts/*.json' --out-dir './types/contracts'",
+		"generate-types-client": "./node_modules/.bin/typechain --target=web3-v1 './build/contracts/*.json' --out-dir '../frontend/types/contracts'",
+		"postinstall": "truffle compile && npm run generate-types && npm run generate-types-client"
+	},
+	"dependencies": {
+		"@openzeppelin/contracts": "^4.5.0"
+	},
+	"devDependencies": {
+		"@typechain/truffle-v5": "^6.0.0",
+		"@typechain/web3-v1": "^4.0.0",
+		"@types/bn.js": "^5.1.0",
+		"@types/chai": "^4.3.0",
+		"@types/chai-as-promised": "^7.1.5",
+		"@types/mocha": "^9.1.0",
+		"@types/web3": "^1.2.2",
+		"chai": "^4.3.6",
+		"chai-as-promised": "^7.1.1",
+		"mocha": "^9.2.2",
+		"solidity-coverage": "^0.7.20",
+		"truffle": "^5.4.26",
+		"truffle-typings": "^1.0.8",
+		"ts-node": "^10.7.0",
+		"typechain": "^6.1.0",
+		"typescript": "^4.6.2"
+	},
+	"author": "",
+	"license": "ISC"
+}
