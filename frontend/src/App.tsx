@@ -3,11 +3,11 @@ import { useMount } from "react-use"
 import Web3 from "web3"
 import { Header } from "./components/Header"
 import { AppContext, IAppContext } from "./context"
-import ColorContractCompiled from "./contracts/Color.json"
+import ColorContractCompiled from "backend/build/contracts/Color.json"
 import { ColorTokenList } from "./components/ColorTokenList"
-import type { Color } from "../types/contracts/Color"
-import type { AbiItem } from "web3-utils"
 import { MintForm } from "./components/MintForm"
+import type { Color } from "backend/types/contracts/web3/Color"
+import type { AbiItem } from "web3-utils"
 
 export function App() {
 	const [context, setContext] = React.useState<Required<IAppContext> | null>(null)

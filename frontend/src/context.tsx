@@ -1,6 +1,6 @@
 import React from "react"
 import Web3 from "web3"
-import type { Color } from "../types/contracts/Color";
+import type { Color } from "backend/types/contracts/web3/Color";
 
 export interface IAppContext {
 	web3?: Web3

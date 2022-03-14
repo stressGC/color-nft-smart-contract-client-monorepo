@@ -1,7 +1,7 @@
 import BN from "bn.js"
 import chai, { expect } from "chai"
 import chaiAsPromise from "chai-as-promised"
-import type { ColorInstance } from "../types/contracts/Color"
+import type { ColorInstance } from "../types/contracts/truffle/Color"
 import { assertThrowWithReason } from "./utils"
 
 chai.use(chaiAsPromise).should()
